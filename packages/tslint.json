@@ -1,0 +1,13 @@
+{
+    "extends": ["tslint-config-airbnb", "tslint-config-standard"],
+    "rules": {
+      "align": false,
+      "await-promise": [true, "Bluebird"],
+      "import-name": false,
+      "semicolon": [true, "always"],
+      "space-before-function-paren": false,
+      "ter-arrow-parens": false,
+      "trailing-comma": false,
+      "variable-name": false
+    }
+  }
