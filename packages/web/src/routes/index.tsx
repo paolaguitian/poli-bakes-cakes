@@ -4,7 +4,7 @@ import { createBrowserHistory } from "history";
 
 
 import App from '../modules/App';
-import Add from '../modules/Add';
+import AddReceipe from '../modules/addReceipe/AddReceipe';
 
 const history = createBrowserHistory()
 
@@ -12,7 +12,7 @@ export const Routes = () => (
  <Router history={history}>
     <Switch>
       <Route exact path="/" component={App}/>
-      <Route exact path="/add" component={Add} />
+      <Route exact path="/add" component={AddReceipe} />
     </Switch>
  </Router>
 )
