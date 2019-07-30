@@ -1,10 +1,15 @@
 import React, { SyntheticEvent } from 'react';
-import { Form, Input, Icon, Button } from 'antd';
+import { Form, Input, Icon, Button, Col } from 'antd';
 import { FormComponentProps } from 'antd/lib/form';
 
 interface Props extends FormComponentProps {}
 
 class AddReceipe extends React.Component <Props> {
+
+  state = {
+    showIngredientField: false,
+    numberOfIngredients: 3,
+  }
 
   handleSubmit = (e:SyntheticEvent) => {
     e.preventDefault();
@@ -15,8 +20,34 @@ class AddReceipe extends React.Component <Props> {
     });
   };
 
-  render() {
+  renderIngredients = () => {
     const { getFieldDecorator } = this.props.form;
+    const { numberOfIngredients } = this.state;
+    const children = [];
+
+    for (let i = 0; i < numberOfIngredients; i++) {
+      children.push(
+        <Col span={7} key={i} style={{ display: i < numberOfIngredients ? 'block' : 'none', margin:'0 4px'}}>
+          <Form.Item label={`Ingredient ${i+1}`}>
+            {getFieldDecorator(`field-${i}`, {
+              rules: [
+                {
+                  required: true,
+                  message: 'Missing Ingredient!',
+                },
+              ],
+            })(<Input/>)}
+          </Form.Item>
+        </Col>
+      );
+    }
+    return children;
+
+  }
+
+
+  render() {
+    const { getFieldDecorator, getFieldValue } = this.props.form;
 
     return (
       <div style={{display: 'flex'}}>
@@ -45,16 +76,27 @@ class AddReceipe extends React.Component <Props> {
             <Form.Item>
               {getFieldDecorator('servingSize', {
                 rules: [{ required: true, message: 'Required Field' }],
-              })( <Input placeholder="Serving"/> )}
+              })( <Input placeholder="Yield Portion"/> )}
             </Form.Item>
             <Form.Item>
-              {getFieldDecorator('ingredients', {
+              {getFieldDecorator('numberOfIngredients', {
                 rules: [{ required: true, message: 'Required Field' }],
-              })(<Input placeholder="Ingredients"/> )}
+              })(
+                <Input
+                  placeholder="Number of Ingredients"
+                  onBlur={() => this.setState(
+                      { showIngredientField: true,
+                        numberOfIngredients: getFieldValue('numberOfIngredients'),
+                      })}
+                />
+              )}
             </Form.Item>
+              <Form.Item>
+                { this.state.showIngredientField ? this.renderIngredients() : <div></div>}
+              </Form.Item>
             <Form.Item>
               <Button type="primary" htmlType="submit" className="login-form-button">
-                Log in
+                Save
               </Button>
             </Form.Item>
           </Form>

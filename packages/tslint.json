@@ -7,7 +7,7 @@
       "semicolon": [true, "always"],
       "space-before-function-paren": false,
       "ter-arrow-parens": false,
-      "trailing-comma": false,
+      "trailing-comma": true,
       "variable-name": false
     }
   }
