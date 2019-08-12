@@ -1,7 +1,8 @@
-import React, { SyntheticEvent } from 'react';
+import React, { SyntheticEvent, useCallback } from 'react';
 import { Form, Input, Icon, Button, Col, TimePicker, Row, InputNumber} from 'antd';
 import TextArea from 'antd/lib/input/TextArea';
 import { FormComponentProps } from 'antd/lib/form';
+import MyDropzone from '../../components/Dropzone';
 
 interface Props extends FormComponentProps { }
 
@@ -68,6 +69,7 @@ class AddReceipe extends React.Component<Props> {
     return children;
   }
 
+
   renderForm() {
     const { getFieldDecorator, getFieldValue } = this.props.form;
     const config = {
@@ -126,6 +128,9 @@ class AddReceipe extends React.Component<Props> {
         </Form.Item>
         <Form.Item>
           {this.state.numberOfSteps ? this.renderInstructions() : <div></div>}
+        </Form.Item>
+        <Form.Item>
+          <MyDropzone/>
         </Form.Item>
         <Form.Item>
           <Button type="primary" htmlType="submit" className="login-form-button">
