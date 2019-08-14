@@ -1,0 +1,13 @@
+{
+  "name": "@polibakescakes/server",
+  "version": "1.0.0",
+  "private": true,
+  "author": "Paola Guitian",
+  "description": "backend for polibakescakes",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^7.12.1"
+  }
+}
