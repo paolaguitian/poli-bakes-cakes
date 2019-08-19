@@ -6,8 +6,14 @@
   "description": "backend for polibakescakes",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "server": "nodemon ./server/server.js"
+  },
   "dependencies": {
+    "apollo-server-express": "^2.8.1",
     "express": "^4.17.1",
+    "graphql": "^14.4.2",
+    "nodemon": "^1.19.1",
     "pg": "^7.12.1"
   }
 }
