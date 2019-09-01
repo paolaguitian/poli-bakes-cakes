@@ -4,16 +4,21 @@
   "private": true,
   "author": "Paola Guitian",
   "description": "backend for polibakescakes",
-  "main": "index.js",
+  "main": "server.js",
   "license": "MIT",
   "scripts": {
-    "server": "nodemon ./server/server.js"
+    "server": "nodemon ./src/server.ts"
   },
   "dependencies": {
+    "@types/bluebird": "^3.5.27",
+    "@types/validator": "^10.11.3",
     "apollo-server-express": "^2.8.1",
+    "dotenv": "^8.1.0",
     "express": "^4.17.1",
     "graphql": "^14.4.2",
     "nodemon": "^1.19.1",
-    "pg": "^7.12.1"
+    "pg": "^7.12.1",
+    "sequelize": "^5.15.1",
+    "ts-node": "^8.3.0"
   }
 }
