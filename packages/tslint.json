@@ -8,6 +8,7 @@
       "space-before-function-paren": false,
       "ter-arrow-parens": false,
       "trailing-comma": true,
-      "variable-name": false
+      "variable-name": false,
+      "padded-blocks": ["error","always"]
     }
   }
